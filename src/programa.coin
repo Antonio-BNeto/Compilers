@@ -1,0 +1,36 @@
+$ import ./math.coin;
+
+mint int factorial(int value){
+    if(value == 0){
+        yield 1;
+    } else {
+        yield value * factorial(value - 1);
+    }
+}
+
+mint bool checkTriangle(int a, int b, int c){
+    if(a < (b + c) and b < (a + c) and c < (a + b)){
+        yield true;
+    }
+    yield false;
+}
+
+vol int variable = 2;
+keep(variable <= 10){
+    pay(factorial(variable));
+}
+
+cycle(vol int x = 0; x <= 10; x++){
+    if(x > 0 or x < 2){
+        pay("something");
+    }
+}
+
+mint main(){
+    vol int x = 10;
+    vol int y = 20;
+    vol int z = 30;
+    if(checkTriangle(x, y, z)){
+        pay("is a triangle");
+    }
+}
